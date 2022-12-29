@@ -26,7 +26,7 @@
 					<uni-easyinput v-model="valiFormData.age" placeholder="请输入年龄" />
 				</uni-forms-item> -->
 				<uni-forms-item label="藏品描述" name="description">
-					<uni-easyinput type="textarea" v-model="valiFormData.description" placeholder="请输入藏品描述" />
+					<uni-easyinput type="textarea" maxlength="-1" v-model="valiFormData.description" placeholder="请输入藏品描述" />
 				</uni-forms-item>
 			</uni-forms>
 			<button style="width: 500upx;"  type="primary" @click="submit('valiForm')">提交</button>
@@ -200,8 +200,10 @@
 							uni.hideLoading();
 							
 						} else {
-							uni.hideLoading();
-							this.$errorToast('藏品发布失败，请重试')
+							// uni.hideLoading();
+							// this.$errorToast('藏品发布失败，请重试')
+							console.log('藏品发布失败，请重试！')
+							uni.$u.toast('藏品发布失败，请重试！！');
 						}
 					})
 					// uni.showToast({
